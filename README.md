@@ -1,6 +1,6 @@
 # Deemixify
 
-For educational purpose only.
+Tool to fetch a users Spotify playlists and dowload them using deemix.
 
 ## Before running
 
