@@ -5,3 +5,7 @@ playlists/.cache
 playlists/playlists.json
 playlists-links/.cache
 playlists-links/playlists.json
+config/.arl
+config/spotify/.auth-cache
+config/spotify/cache.json
+desktop.ini

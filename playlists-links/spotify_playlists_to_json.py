@@ -2,11 +2,12 @@ import os
 import json
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
+from getSpotifyApiCredentials import get_spotify_credentials
 
 # Set your Spotify credentials
-os.environ["SPOTIPY_CLIENT_ID"] = "7c21364f37784f5eb67f701924b9a101"
-os.environ["SPOTIPY_CLIENT_SECRET"] = "f797889ddbd04ddea5024558bec2b8f5"
-os.environ["SPOTIPY_REDIRECT_URI"] = "https://example.com"  # For example, http://localhost:8888/callback
+os.environ["SPOTIPY_CLIENT_ID"] = get_spotify_credentials("../config/spotify/config.json")[0]
+os.environ["SPOTIPY_CLIENT_SECRET"] = get_spotify_credentials("../config/spotify/config.json")[1]
+os.environ["SPOTIPY_REDIRECT_URI"] = "https://example.com"
 
 def get_spotify_playlist_links():
     sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope="playlist-read-private"))
