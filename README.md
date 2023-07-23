@@ -12,7 +12,7 @@ Tool to fetch a users Spotify playlists and dowload them using deemix.
   This is where you will configure the download path and quality also arl will be set here and spotify `cliendID` and `cliendSecret` for deemix.
 
 - Configure spotify api
-  1.  Make an application on https://developer.spotify.com/
+  1.  Make an app on https://developer.spotify.com/
   2.  Add `cliendID` and `cliendSecret` to `spotify-credentials.json`
 
 ## Running the program
