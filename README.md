@@ -8,8 +8,8 @@ Tool to fetch a users Spotify playlists and dowload them using deemix.
   `pip install deemix`
 
 - Configure deemix  
-  The config files are located in the config folder, change `config.json` to your liking  
-  This is where you will configure the download path and quality.
+  The config files are located in the config folder, change `config.json` to your liking.
+  This is where you will configure the **download path (important)** and quality.
 
 - Configure Spotify API
 
