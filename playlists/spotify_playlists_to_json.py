@@ -30,7 +30,7 @@ if __name__ == "__main__":
     playlist_links = get_spotify_playlist_links()
 
     if playlist_links:
-        output_filename = "spotify_playlist_links.json"
+        output_filename = "playlists.json"
         save_to_json(playlist_links, output_filename)
         print(f"Playlist links saved to {output_filename}")
     else:
