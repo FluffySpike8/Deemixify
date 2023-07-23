@@ -1,4 +1,4 @@
-cd .\playlists\ 
+cd .\playlists-links\ 
 python spotify_playlists_to_json.py
 
 

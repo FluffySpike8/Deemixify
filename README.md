@@ -18,3 +18,7 @@ Tool to fetch a users Spotify playlists and dowload them using deemix.
 ## Running the program
 
 To run the program, just double click run.bat. The music files will be downloaded to the path you chose.
+
+## TODO
+
+Catch or log errors
