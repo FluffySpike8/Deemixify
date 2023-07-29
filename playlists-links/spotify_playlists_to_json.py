@@ -15,24 +15,25 @@ def get_spotify_playlist_links():
     # Get the user's playlists
     playlists = sp.current_user_playlists()
 
-    playlist_links = []
+    playlist_info = []
 
     for playlist in playlists["items"]:
+        playlist_name = playlist["name"]
         playlist_link = playlist["external_urls"]["spotify"]
-        playlist_links.append(playlist_link)
+        playlist_info.append({"name": playlist_name, "link": playlist_link})
 
-    return playlist_links
+    return playlist_info
 
 def save_to_json(data, filename):
     with open(filename, "w") as f:
         json.dump(data, f, indent=4)
 
 if __name__ == "__main__":
-    playlist_links = get_spotify_playlist_links()
+    playlist_info = get_spotify_playlist_links()
 
-    if playlist_links:
+    if playlist_info:
         output_filename = "playlists.json"
-        save_to_json(playlist_links, output_filename)
+        save_to_json(playlist_info, output_filename)
         print(f"Playlist links saved to {output_filename}")
     else:
         print("No playlists found.")
