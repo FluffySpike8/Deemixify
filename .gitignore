@@ -7,3 +7,4 @@ desktop.ini
 .cache
 playlists.json
 config/spotify/config.json
+*.json
