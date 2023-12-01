@@ -1,8 +1,10 @@
 from getDownloadPath import get_download_location_from_config
 import os
 import shutil
+from os.path import join as path_join
 
-def  move_playlist_files():
+
+def move_playlist_files():
     download_location = get_download_location_from_config()
 
     if download_location:
@@ -26,7 +28,7 @@ def  move_playlist_files():
                 try:
                     shutil.move(src_path, dest_path)
                     print(f"Moved '{m3u8_file}' to: {dest_path}")
-
+                    
                     # Modify the content of the .m3u8 file
                     with open(dest_path, 'r') as file:
                         lines = file.readlines()
@@ -47,5 +49,30 @@ def  move_playlist_files():
         else:
             print("No .m3u8 files found in the source folder.")
 
+def add_external_music_files_to_playlist():
+    download_location = get_download_location_from_config()
+
+    favorites_m3u8_path = os.path.join(download_location, "..", "Playlist", "m3u8", "Favorites.m3u8")
+    
+    if os.path.exists(favorites_m3u8_path):
+        print("Adding external music files to playlist...")
+        external_folder = os.path.join(download_location, "External")
+        music_files = []
+
+        # Recursively find all music files in External folder
+        for root, _, files in os.walk(external_folder):
+            for file in files:
+                if file.lower().endswith((".mp3", ".wav", ".flac")):
+                    file_path = os.path.relpath(os.path.join(root, file), external_folder)
+                    music_files.append(file_path.replace('\\', '/'))
+
+        # Add music files from download_location/External to the playlist file
+        with open(favorites_m3u8_path, 'a') as file:
+            for music_file in music_files:
+                file.write(f"../../{os.path.basename(download_location)}/External/{music_file}\n")
+
+        print(f"Added music files to 'Favorites.m3u8'")
+
 if __name__ == "__main__":
     move_playlist_files()
+    add_external_music_files_to_playlist()
